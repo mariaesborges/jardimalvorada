@@ -1,0 +1,265 @@
+/* ===== SEÇÃO PRINCIPAL ===== */
+.section-contact-main {
+  background: var(--cream);
+  padding: 96px var(--pad-h);
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ===== COLUNA ESQUERDA — INFO ===== */
+.contact-left h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 4.5vw, 58px);
+  font-weight: 300;
+  color: var(--dark-brown);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.contact-left h2 em { color: var(--green); font-style: italic; }
+
+.contact-left > p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 48px;
+  max-width: 460px;
+}
+
+/* Lista de infos (endereço, telefone etc.) */
+.ct-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ct-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ct-info-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(90,107,58,0.12);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ct-info-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ct-info-text { display: flex; flex-direction: column; }
+
+.ct-info-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.ct-info-value {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--dark-brown);
+  line-height: 1.6;
+}
+
+/* ===== COLUNA DIREITA — CARD DE FORMULÁRIO ===== */
+.contact-form-card {
+  background: var(--white);
+  padding: 52px 48px;
+  box-shadow: 0 2px 32px rgba(44,26,14,0.07);
+}
+
+/* Linha com 2 campos lado a lado */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+/* Campo individual */
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cf-field.full { grid-column: 1 / -1; }
+
+/* Espaçamento para campos únicos */
+.form-single { margin-bottom: 28px; }
+.form-single + .form-single { margin-top: 0; }
+
+/* Label */
+.cf-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.cf-label sup { color: var(--green); }
+
+/* Inputs, select e textarea */
+.cf-input,
+.cf-select,
+.cf-textarea {
+  width: 100%;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d8d0c4;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--trans-base);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.cf-input::placeholder,
+.cf-textarea::placeholder { color: #c0b8b0; }
+
+.cf-input:focus,
+.cf-select:focus,
+.cf-textarea:focus { border-bottom-color: var(--green); }
+
+/* Select nativo — escondido (substituído pelo custom abaixo) */
+.cf-select { display: none; }
+
+/* ── Select customizado ── */
+.cf-select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.cf-select-trigger {
+  width: 100%;
+  padding: 12px 28px 12px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d8d0c4;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color var(--trans-base), color var(--trans-base);
+  text-align: left;
+  outline: none;
+  user-select: none;
+}
+
+.cf-select-trigger.has-value { color: var(--text); }
+.cf-select-trigger.open      { border-bottom-color: var(--green); }
+
+.cf-select-arrow {
+  width: 12px;
+  height: 8px;
+  flex-shrink: 0;
+  stroke: var(--text-light);
+  fill: none;
+  transition: transform var(--trans-base);
+}
+.cf-select-trigger.open .cf-select-arrow { transform: rotate(180deg); }
+
+/* Painel dropdown */
+.cf-select-dropdown {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid #d8d0c4;
+  border-top: none;
+  z-index: 200;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease, border-color 0.28s ease;
+  box-shadow: 0 8px 24px rgba(44,26,14,0.09);
+}
+
+.cf-select-dropdown.open {
+  max-height: 280px;
+  overflow-y: auto;
+  border-color: var(--green);
+}
+
+.cf-select-option {
+  padding: 13px 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: background var(--trans-base), color var(--trans-base);
+  border-bottom: 1px solid var(--border);
+}
+.cf-select-option:last-child  { border-bottom: none; }
+.cf-select-option:hover       { background: rgba(90,107,58,0.07); color: var(--green); }
+.cf-select-option.selected    { background: rgba(90,107,58,0.10); color: var(--green); font-weight: 500; }
+.cf-select-option.placeholder { color: var(--text-light); font-style: italic; }
+
+/* Textarea */
+.cf-textarea { resize: none; height: 90px; line-height: 1.6; }
+
+/* Botão submit */
+.cf-submit {
+  margin-top: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background var(--trans-base);
+}
+.cf-submit:hover         { background: var(--green-hover); }
+.cf-submit:disabled      { opacity: 0.7; cursor: not-allowed; }
+
+.cf-submit svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  .section-contact-main {
+    padding: 64px var(--pad-h-md);
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .contact-form-card { padding: 40px 28px; }
+  .form-row { grid-template-columns: 1fr; gap: 24px; }
+}

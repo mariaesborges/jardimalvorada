@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infraestrutura · Jardim Alvorada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/root.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/infraestrutura.css">
+</head>
+<body>
+
+<header class="nav nav-dark">
+  <a href="index.html" class="logo-wrap">
+    <img class="logo-icon" src="img/icone-transparent.png" alt="Jardim Alvorada ícone">
+    <div class="logo-text-wrap">
+      <span class="logo-name">Jardim Alvorada</span>
+      <span class="logo-sub">Residencial</span>
+    </div>
+  </a>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="empreendimento.html">Empreendimento</a></li>
+      <li><a href="infraestrutura.html" class="active">Infraestrutura</a></li>
+      <li><a href="galeria.html">Galeria</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="empreendimento.html">Empreendimento</a>
+  <a href="infraestrutura.html" class="active">Infraestrutura</a>
+  <a href="galeria.html">Galeria</a>
+  <a href="contato.html">Contato</a>
+</div>
+
+<!-- HERO BANNER -->
+<div class="page-hero-banner" style="background-image:url('img/infra-hero.jpg');background-position:center 55%;">
+  <div class="ph-overlay" style="background:linear-gradient(to right,rgba(20,12,4,.78) 0%,rgba(20,12,4,.50) 55%,rgba(20,12,4,.22) 100%);"></div>
+  <div class="ph-content">
+    <span class="el">Infraestrutura</span>
+    <h1>Tudo pronto para você viver bem.</h1>
+    <p>Do projeto urbanístico aos detalhes de saneamento, cada elemento foi planejado para oferecer conforto e segurança aos moradores.</p>
+  </div>
+</div>
+
+<!-- ITENS DE INFRAESTRUTURA -->
+<div class="infra-items">
+
+  <!-- 01 Hospital -->
+  <div class="infra-block fade-up">
+    <div class="ib-image bleed-left">
+      <img src="img/hospital.jpg" alt="Hospital integrado" style="min-height:360px;">
+    </div>
+    <div class="ib-text">
+      <div class="ib-numero"><span>01</span></div>
+      <svg class="ib-icon" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <h2>Hospital integrado</h2>
+      <p>Atendimento à saúde dentro do próprio loteamento, oferecendo tranquilidade e agilidade para os moradores em qualquer momento.</p>
+    </div>
+  </div>
+
+  <!-- 02 Pavimentação -->
+  <div class="infra-block reverse fade-up">
+    <div class="ib-text">
+      <div class="ib-numero"><span>02</span></div>
+      <svg class="ib-icon" viewBox="0 0 24 24">
+        <path d="M3 7c3-3 6-3 9 0s6 3 9 0"/>
+        <path d="M3 12c3-3 6-3 9 0s6 3 9 0"/>
+        <path d="M3 17c3-3 6-3 9 0s6 3 9 0"/>
+      </svg>
+      <h2>Pavimentação completa</h2>
+      <p>Vias asfaltadas, sinalizadas e iluminadas, com calçadas largas pensadas para a mobilidade e a segurança de todos.</p>
+    </div>
+    <div class="ib-image bleed-right">
+      <img src="img/pavimentacao.jpg" alt="Pavimentação" style="min-height:360px;">
+    </div>
+  </div>
+
+  <!-- 03 Energia -->
+  <div class="infra-block fade-up">
+    <div class="ib-image bleed-left">
+      <img src="img/energia.jpg" alt="Energia elétrica" style="min-height:360px;">
+    </div>
+    <div class="ib-text">
+      <div class="ib-numero"><span>03</span></div>
+      <svg class="ib-icon" viewBox="0 0 24 24">
+        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+      </svg>
+      <h2>Energia elétrica</h2>
+      <p>Rede de distribuição moderna, dimensionada para suportar com folga as demandas residenciais contemporâneas.</p>
+    </div>
+  </div>
+
+  <!-- 04 Água & Saneamento -->
+  <div class="infra-block reverse fade-up">
+    <div class="ib-text">
+      <div class="ib-numero"><span>04</span></div>
+      <svg class="ib-icon" viewBox="0 0 24 24">
+        <path d="M12 2C6 9 4 13 4 16a8 8 0 0016 0c0-3-2-7-8-14z"/>
+        <path d="M8 19c1.5 1 3.5 1 5 0" stroke-linecap="round"/>
+      </svg>
+      <h2>Água &amp; Saneamento</h2>
+      <p>Projetos próprios de abastecimento de água e saneamento, garantindo qualidade e autonomia desde o primeiro dia.</p>
+    </div>
+    <div class="ib-image bleed-right">
+      <img src="img/saneamento.jpg" alt="Água e Saneamento" style="min-height:360px;">
+    </div>
+  </div>
+
+  <!-- 05 Arborização -->
+  <div class="infra-block fade-up">
+    <div class="ib-image bleed-left">
+      <img src="img/paisagismo.jpg" alt="Arborização e paisagismo" style="min-height:360px;">
+    </div>
+    <div class="ib-text">
+      <div class="ib-numero"><span>05</span></div>
+      <svg class="ib-icon" viewBox="0 0 24 24">
+        <path d="M17 8C8 10 5.9 16.17 3.82 19.37"/>
+        <path d="M17 8c0 0 2 4 0 8"/>
+        <path d="M17 8C12 8 9 11 3.82 19.37"/>
+        <path d="M10.24 19.37C9 17.5 7.5 15 3.82 19.37"/>
+      </svg>
+      <h2>Arborização &amp; Paisagismo</h2>
+      <p>Projeto paisagístico com espécies nativas, áreas verdes generosas e ambientes pensados para o bem-estar.</p>
+    </div>
+  </div>
+
+  <!-- 06 Localização -->
+  <div class="infra-block reverse fade-up">
+    <div class="ib-text">
+      <div class="ib-numero"><span>06</span></div>
+      <svg class="ib-icon" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <polyline points="9,12 11,14 15,10"/>
+      </svg>
+      <h2>Localização privilegiada</h2>
+      <p>Em uma das principais avenidas da cidade, com fácil acesso a comércio, escolas e serviços essenciais.</p>
+    </div>
+    <div class="ib-image bleed-right">
+      <img src="img/localizacao.jpg" alt="Localização privilegiada" style="min-height:360px;">
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section class="section-cta" style="background-image: url('img/infra-cta.jpg');">
+  <div class="cta-overlay"></div>
+  <div class="cta-content fade-up">
+    <span class="label section-label">Reserve seu Lote</span>
+    <h2>Sua nova história começa <em>aqui.</em></h2>
+    <p>Os melhores lotes saem primeiro. Fale com nossa equipe e descubra a localização ideal para você.</p>
+    <a href="contato.html" class="btn btn-outline-dark">Falar com Consultor <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-name">Residencial<br>Jardim Alvorada</span>
+      <p>Um lugar onde a vista para a Serra da Canastra encontra a infraestrutura completa que você merece. Viva o início de uma nova história.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <h4>Navegue</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="empreendimento.html">Empreendimento</a></li>
+        <li><a href="infraestrutura.html">Infraestrutura</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><p>Av. Vicente Picardi, Barro Branco<br>São Roque de Minas - MG</p></div>
+      <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><p>(37) 99949-1046</p></div>
+      <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><p>eixo@doriquinho.com.br</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Residencial Jardim Alvorada © 2026 Todos os direitos reservados | Desenvolvido por Maria Eduarda Borges</p>
+    <p>Imagens meramente ilustrativas.</p>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script src="infraestrutura.js"></script>
+</body>
+</html>

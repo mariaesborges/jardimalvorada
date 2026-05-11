@@ -1,0 +1,140 @@
+/* ============================================================
+   infraestrutura.css — estilos exclusivos de infraestrutura.html
+   Depende de: root.css, components.css
+   ============================================================ */
+
+.infra-items { background: var(--cream); }
+
+/* Bloco alternado imagem + texto */
+.infra-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 80px var(--pad-h);
+  gap: 80px;
+  border-bottom: 1px solid var(--border);
+}
+.infra-block:last-of-type { border-bottom: none; }
+
+/* Imagem */
+.ib-image {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.ib-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.ib-image:hover img { transform: scale(1.03); }
+
+/* Sangria nas bordas laterais */
+.ib-image.bleed-right {
+  margin-right: calc(-1 * var(--pad-h));
+  border-radius: 2px 0 0 2px;
+}
+.ib-image.bleed-left {
+  margin-left: calc(-1 * var(--pad-h));
+  border-radius: 0 2px 2px 0;
+}
+
+/* Texto */
+.ib-text { padding: 20px 0; }
+
+.ib-numero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.ib-numero::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--dark-brown);
+  opacity: 0.5;
+}
+.ib-numero span {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+}
+
+.ib-icon {
+  width: 36px;
+  height: 36px;
+  stroke: var(--dark-brown);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.ib-text h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--dark-brown);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.ib-text p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.85;
+  max-width: 440px;
+}
+
+/* Bloco invertido: texto à esquerda, imagem à direita */
+.infra-block.reverse .ib-image { order: 1; }
+.infra-block.reverse .ib-text  { order: 0; }
+
+/* Lista de bullets opcional */
+.ib-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+.ib-list li {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ib-list li::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .infra-block {
+    grid-template-columns: 1fr;
+    padding: 60px var(--pad-h-md);
+    gap: 40px;
+  }
+  /* Reseta a ordem dos elementos invertidos */
+  .infra-block.reverse .ib-image { order: 0; }
+  .infra-block.reverse .ib-text  { order: 1; }
+  /* Remove sangrais nas laterais em mobile */
+  .ib-image.bleed-right { margin-right: calc(-1 * var(--pad-h-md)); border-radius: 2px 0 0 2px; }
+  .ib-image.bleed-left  { margin-left:  calc(-1 * var(--pad-h-md)); border-radius: 0 2px 2px 0; }
+}
