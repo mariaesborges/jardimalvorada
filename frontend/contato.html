@@ -18,7 +18,7 @@
     <img class="logo-icon" src="img/icone-transparent.png" alt="Jardim Alvorada ícone">
     <div class="logo-text-wrap">
       <span class="logo-name">Jardim Alvorada</span>
-      <span class="logo-sub">Residencial</span>
+      <span class="logo-sub">Loteamento</span>
     </div>
   </a>
   <nav>
@@ -99,7 +99,7 @@
         </div>
         <div class="ct-info-text">
           <span class="ct-info-label">Atendimento</span>
-          <span class="ct-info-value">Seg a Sex • 9h às 18h<br>Sáb • 9h às 13h</span>
+          <span class="ct-info-value">Seg a Sex • 7h às 18h<br>Sáb • 7h às 11h</span>
         </div>
       </div>
     </div>
@@ -127,7 +127,6 @@
 
       <div class="form-single cf-field" style="margin-top:28px;">
         <label class="cf-label">Assunto</label>
-        <!-- Select nativo (oculto) — mantido para acessibilidade e coleta de valor -->
         <select class="cf-select" name="assunto" aria-hidden="true" tabindex="-1">
           <option value="" disabled selected>Selecione</option>
           <option>Quero conhecer os lotes disponíveis</option>
@@ -136,7 +135,6 @@
           <option>Condições de pagamento</option>
           <option>Outros</option>
         </select>
-        <!-- Select customizado -->
         <div class="cf-select-wrap" role="combobox" aria-expanded="false">
           <button type="button" class="cf-select-trigger" aria-haspopup="listbox">
             <span class="cf-select-text">Selecione</span>
@@ -170,20 +168,52 @@
 
 </section>
 
+<!-- MAPA -->
+<section class="section-mapa-contato">
+  <div class="mapa-contato-header fade-up">
+    <span class="sl">Como Chegar</span>
+    <h2>Venha nos <em>visitar.</em></h2>
+    <p>Av. Vicente Picardi, bairro Barro Branco — São Roque de Minas, MG</p>
+  </div>
+  <div class="mapa-contato-wrap fade-up delay-1">
+    <iframe
+      src="https://maps.google.com/maps?q=-20.259041,-46.354022&z=16&output=embed"
+      width="100%"
+      height="480"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Localização do Loteamento Jardim Alvorada">
+    </iframe>
+    <a
+      href="https://maps.app.goo.gl/bAJdKKeLzuJoSnS6A"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mapa-link-externo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      Abrir no Google Maps
+      <svg class="ext-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+        <polyline points="15,3 21,3 21,9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <span class="logo-name">Residencial<br>Jardim Alvorada</span>
-      <p>Um lugar onde a vista para a Serra da Canastra encontra a infraestrutura completa que você merece. Viva o início de uma nova história.</p>
-      <div class="footer-social">
-        <a href="#" class="social-btn" aria-label="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
-        </a>
-        <a href="#" class="social-btn" aria-label="Facebook">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        </a>
-      </div>
+       <div class="footer-brand-logo">
+         <img src="img/icone-transparent.png" alt="Jardim Alvorada ícone">
+         <span class="logo-name">Loteamento<br>Jardim Alvorada</span>
+       </div>
+       <p>Um lugar onde a vista para a Serra da Canastra encontra a infraestrutura completa que você merece. Viva o início de uma nova história.</p>
     </div>
     <div class="footer-nav">
       <h4>Navegue</h4>
@@ -203,7 +233,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Residencial Jardim Alvorada © 2026 Todos os direitos reservados | Desenvolvido por Maria Eduarda Borges</p>
+    <p>Loteamento Jardim Alvorada © 2026 Todos os direitos reservados | Desenvolvido por <a href="https://github.com/mariaesborges" target="_blank" rel="noopener noreferrer">Maria Eduarda Borges</a></p>
     <p>Imagens meramente ilustrativas.</p>
   </div>
 </footer>

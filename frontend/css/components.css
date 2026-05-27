@@ -443,6 +443,17 @@
   color: rgba(255,255,255,0.3);
 }
 
+.footer-bottom a {
+  color: rgba(255,255,255,0.3);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+  color: rgba(255,255,255,0.65);
+}
+
 /* ===== LIGHTBOX ===== */
 .lightbox {
   display: none;
@@ -489,9 +500,34 @@
 
   .footer { padding: 60px var(--pad-h-md) 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 480px) {
   .page-hero-banner { height: 300px; }
+}
+.footer-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-brand-logo img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+.footer-brand-logo .logo-name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.25;
+}
+
+/* Remove margem do logo-name standalone que estava antes */
+.footer-brand > .logo-name {
+  display: none;
 }

@@ -1,68 +1,108 @@
-/* ============================================================
-   galeria.js — JS exclusivo de galeria.html
-   Depende de: shared.js (carregado antes)
-   ============================================================ */
+/* ===== GALERIA — Lightbox ===== */
+(function initGaleria() {
 
-/* ===== LIGHTBOX ===== */
-(function initLightbox() {
-  const lightbox    = document.querySelector('.lightbox');
-  if (!lightbox) return;
+  const items = document.querySelectorAll('.gal-item');
+  if (!items.length) return;
 
-  const lightboxImg = lightbox.querySelector('img');
-  const closeBtn    = lightbox.querySelector('.lightbox-close');
+  const lightbox  = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lb-img');
+  const lbCaption = document.getElementById('lb-caption');
+  const lbCounter = document.getElementById('lb-counter');
+  const lbClose   = document.getElementById('lb-close');
+  const lbPrev    = document.getElementById('lb-prev');
+  const lbNext    = document.getElementById('lb-next');
 
-  function openLightbox(src) {
-    lightboxImg.src = src;
+  /* Monta array de imagens a partir dos itens do grid */
+  const images = Array.from(items).map(item => ({
+    src:     item.querySelector('img').src,
+    alt:     item.querySelector('img').alt,
+    caption: item.querySelector('.gal-overlay span')?.textContent || ''
+  }));
+
+  let current = 0;
+
+  /* ── Abre lightbox ── */
+  function open(index) {
+    current = index;
+    render();
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    lbClose.focus();
   }
 
-  function closeLightbox() {
+  /* ── Fecha lightbox ── */
+  function close() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
-    /* Limpa src após a transição para não mostrar imagem antiga no próximo hover */
-    setTimeout(() => { lightboxImg.src = ''; }, 300);
   }
 
-  /* Clique nas imagens da galeria */
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      if (img) openLightbox(img.src);
+  /* ── Renderiza imagem atual ── */
+  function render() {
+    const { src, alt, caption } = images[current];
+    lbImg.classList.add('loading');
+    lbImg.src = src;
+    lbImg.alt = alt;
+    lbCaption.textContent = caption;
+    lbCounter.textContent = `${current + 1} / ${images.length}`;
+
+    lbImg.onload = () => lbImg.classList.remove('loading');
+  }
+
+  /* ── Navegação ── */
+  function prev() {
+    current = (current - 1 + images.length) % images.length;
+    render();
+  }
+
+  function next() {
+    current = (current + 1) % images.length;
+    render();
+  }
+
+  /* ── Eventos dos itens do grid ── */
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => open(i));
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', `Ampliar imagem ${i + 1}`);
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open(i);
+      }
     });
   });
 
-  /* Fechar */
-  closeBtn?.addEventListener('click', closeLightbox);
+  /* ── Eventos do lightbox ── */
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', prev);
+  lbNext.addEventListener('click', next);
+
+  /* Fecha ao clicar fora da imagem */
   lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) closeLightbox();
+    if (e.target === lightbox) close();
   });
+
+  /* Teclado */
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  prev();
+    if (e.key === 'ArrowRight') next();
   });
+
+  /* ── Swipe touch (mobile) ── */
+  let touchStartX = 0;
+
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      dx < 0 ? next() : prev();
+    }
+  }, { passive: true });
+
 })();
-
-
-/* ===== FILTRO DE CATEGORIAS (preparado para uso futuro) =====
-   Quando as fotos chegarem, adicione data-category="nome" em
-   cada .gallery-item e descomente este bloco.
-
-(function initFilter() {
-  const filterBtns = document.querySelectorAll('[data-filter]');
-  if (!filterBtns.length) return;
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const cat = btn.dataset.filter;
-
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      document.querySelectorAll('.gallery-item').forEach(item => {
-        const match = cat === 'all' || item.dataset.category === cat;
-        item.style.display = match ? '' : 'none';
-      });
-    });
-  });
-})();
-*/

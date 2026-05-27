@@ -1,0 +1,513 @@
+/* ============================================================
+   responsive.css — Jardim Alvorada
+   Adicionar em TODAS as páginas como ÚLTIMO link CSS:
+   <link rel="stylesheet" href="css/responsive.css">
+
+   Breakpoints:
+   xs:  < 480px      (mobile pequeno)
+   sm:  480–767px    (mobile)
+   md:  768–1023px   (tablet)
+   lg:  1024–1279px  (notebook)
+   xl:  ≥ 1280px     (desktop — padrão, sem media query)
+   ============================================================ */
+
+/* ============================================================
+   RESET COMPLEMENTAR
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .nav { padding: 18px 40px; }
+  .nav-links { gap: 22px; }
+  .nav-links a { font-size: 12px; }
+}
+
+/* Mobile — esconde links, mostra toggle */
+@media (max-width: 767px) {
+  .nav { padding: 16px 24px; }
+  .nav-links { display: none !important; }
+  .nav-toggle { display: flex !important; }
+  .logo-icon  { height: 32px; }
+  .logo-name  { font-size: 16px; }
+  .logo-sub   { font-size: 8px; }
+}
+
+/* Menu mobile — transição suave */
+.nav-mobile {
+  transition: opacity 0.32s ease, transform 0.32s ease;
+  transform: translateY(-8px);
+}
+.nav-mobile.open {
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .nav-mobile a { font-size: clamp(24px, 7vw, 36px); }
+}
+
+/* ============================================================
+   PAGE HERO BANNER (páginas internas)
+   ============================================================ */
+@media (max-width: 767px) {
+  .page-hero-banner { height: 280px; margin-top: 62px; }
+  .ph-content { padding: 32px 24px; }
+  .ph-content h1 { font-size: clamp(26px, 7vw, 38px); }
+  .ph-content p  { font-size: 13px; max-width: 100%; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page-hero-banner { height: 340px; }
+  .ph-content { padding: 44px 40px; }
+  .ph-content h1 { font-size: clamp(36px, 5vw, 52px); }
+}
+
+/* ============================================================
+   HERO (homepage)
+   ============================================================ */
+@media (max-width: 479px) {
+  .hero {
+    padding: 36px 20px 52px;
+    min-height: 100svh;
+  }
+  .hero h1       { font-size: clamp(34px, 10vw, 48px); line-height: 1.1; }
+  .hero-sub      { font-size: 13px; margin-bottom: 24px; max-width: 100%; }
+  .hero-buttons  { flex-direction: column; gap: 10px; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+  .scroll-hint   { display: none; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .hero { padding: 56px 28px; }
+  .hero h1 { font-size: clamp(40px, 9vw, 58px); }
+  .scroll-hint { display: none; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero { padding: 72px 40px; }
+  .hero h1 { font-size: clamp(46px, 6.5vw, 64px); }
+}
+
+/* ============================================================
+   SEÇÃO EMPREENDIMENTO SPLIT (homepage)
+   ============================================================ */
+@media (max-width: 767px) {
+  .section-empreendimento {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .empreend-text  { padding: 52px 24px; order: 1; }
+  .empreend-image { min-height: 240px; order: 2; }
+  .empreend-text h2 { font-size: clamp(26px, 7vw, 36px); }
+  .empreend-text p  { max-width: 100%; font-size: 14px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .empreend-text { padding: 64px 40px; }
+  .empreend-image { min-height: 360px; }
+}
+
+/* ============================================================
+   DIFERENCIAIS (homepage)
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-diferenciais { padding: 52px 20px; }
+  .diferenciais-header  { margin-bottom: 40px; }
+  .diferenciais-header h2 { font-size: clamp(26px, 8vw, 36px); }
+  .diferenciais-grid { grid-template-columns: 1fr; }
+  .diferencial-item  { padding: 28px 0; border-right: none !important; }
+  .diferencial-item h3 { font-size: 18px; }
+  .dif-icon { width: 26px; height: 26px; margin-bottom: 18px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-diferenciais { padding: 60px 28px; }
+  .diferenciais-grid { grid-template-columns: 1fr; }
+  .diferencial-item  { padding: 32px 0; border-right: none !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-diferenciais { padding: 72px 40px; }
+  .diferenciais-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .diferencial-item:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,0.12) !important; }
+  .diferencial-item:nth-child(even) { border-right: none !important; }
+  .diferencial-item { padding: 40px 28px; }
+}
+
+/* ============================================================
+   VÍDEO DESTAQUE (homepage)
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-video-destaque { padding: 52px 20px; }
+  .video-destaque-intro h2 { font-size: clamp(24px, 7vw, 32px); }
+  .video-destaque-caption  { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-video-destaque { padding: 60px 28px; }
+  .video-destaque-caption { flex-direction: column; gap: 10px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-video-destaque { padding: 72px 40px; }
+}
+
+/* ============================================================
+   SOBRE (empreendimento)
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-sobre { padding: 52px 20px; }
+  .sobre-heading { font-size: clamp(26px, 7vw, 34px); margin-bottom: 24px; }
+  .sobre-cols    { grid-template-columns: 1fr; gap: 16px; }
+  .sobre-cols p  { font-size: 14px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-sobre { padding: 60px 28px; }
+  .sobre-cols    { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-sobre { padding: 72px 40px; }
+  .sobre-cols    { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+/* ============================================================
+   NÚMEROS (empreendimento)
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-numeros { padding: 44px 20px 52px; }
+  .numeros-grid    { grid-template-columns: 1fr 1fr; }
+  .numero-item     { padding: 20px 12px 0 0; }
+  .numero-valor    { font-size: clamp(36px, 10vw, 52px); margin-bottom: 8px; }
+  .numero-label    { font-size: 9px; letter-spacing: 0.1em; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-numeros { padding: 52px 28px 60px; }
+  .numeros-grid    { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .numero-valor    { font-size: clamp(44px, 9vw, 60px); }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-numeros { padding: 52px 40px 60px; }
+  .numeros-grid    { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+}
+
+/* ============================================================
+   OS LOTES (empreendimento)
+   ============================================================ */
+@media (max-width: 767px) {
+  .section-lotes {
+    grid-template-columns: 1fr;
+    padding: 0 24px 64px;
+    gap: 36px;
+  }
+  .lotes-image img { min-height: 240px; }
+  .lotes-text h2   { font-size: clamp(24px, 7vw, 34px); }
+  .lotes-text .tp  { font-size: 13px; }
+  .lotes-list li   { padding: 11px 0; gap: 10px; }
+  .lic             { width: 28px; height: 28px; flex-shrink: 0; }
+  .li-text strong  { font-size: 13px; }
+  .li-text span    { font-size: 11px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-lotes {
+    grid-template-columns: 1fr;
+    padding: 0 40px 80px;
+    gap: 48px;
+  }
+  .lotes-image img { min-height: 300px; }
+}
+
+/* ============================================================
+   MAPA INTERATIVO (empreendimento)
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-mapa  { padding: 52px 20px; }
+  .mapa-intro h2 { font-size: clamp(24px, 7vw, 32px); }
+  .mapa-intro p  { font-size: 13px; }
+  .mapa-layout   { grid-template-columns: 1fr; }
+  .mapa-svg-wrap { min-height: 260px; }
+  .mapa-painel   { padding: 24px 16px; }
+  .painel-sel h3 { font-size: 18px; }
+  .painel-desc   { font-size: 12px; }
+  .tag-btn       { font-size: 10px; padding: 5px 8px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-mapa  { padding: 60px 28px; }
+  .mapa-layout   { grid-template-columns: 1fr; }
+  .mapa-painel   { padding: 28px 20px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-mapa  { padding: 64px 40px; }
+  .mapa-layout   { grid-template-columns: 1fr; }
+  .mapa-painel   { padding: 32px 28px; }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .mapa-layout { grid-template-columns: 1fr 260px; }
+}
+
+/* ============================================================
+   LEGENDA (empreendimento)
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-legenda { margin: 0 20px; padding: 32px 16px; }
+  .leg-title { font-size: 22px; }
+  .leg-cols  { grid-template-columns: 1fr; gap: 28px; }
+  .leg-item div p:first-child { font-size: 15px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-legenda { margin: 0 24px; padding: 36px 20px; }
+  .leg-cols { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-legenda { margin: 0 40px; padding: 40px 32px; }
+  .leg-cols { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+/* ============================================================
+   CTA (todas as páginas)
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-cta { min-height: 360px; }
+  .cta-content { padding: 56px 20px; }
+  .cta-content h2 { font-size: clamp(26px, 8vw, 36px); }
+  .cta-content p  { font-size: 13px; max-width: 100%; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .cta-content { padding: 64px 28px; }
+  .cta-content h2 { font-size: clamp(28px, 7vw, 40px); }
+}
+
+/* ============================================================
+   GALERIA
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-galeria  { padding: 44px 16px 56px; }
+  .galeria-intro    { margin-bottom: 36px; }
+  .galeria-intro h2 { font-size: clamp(24px, 8vw, 32px); }
+  .galeria-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-bottom: 36px;
+  }
+  .gal-item.gal-wide {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+  .galeria-video-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-galeria { padding: 52px 20px 64px; }
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .gal-item.gal-wide { grid-column: span 2; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-galeria { padding: 64px 40px 72px; }
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .gal-item.gal-wide { grid-column: span 2; }
+}
+
+/* Lightbox em mobile */
+@media (max-width: 767px) {
+  .lb-prev  { left: 6px; }
+  .lb-next  { right: 6px; }
+  .lb-nav   { width: 38px; height: 38px; }
+  .lb-close { top: 14px; right: 14px; width: 36px; height: 36px; }
+  .lb-img   { max-width: 96vw; max-height: 72vh; }
+  .lb-counter { font-size: 10px; }
+}
+
+/* ============================================================
+   INFRAESTRUTURA
+   ============================================================ */
+@media (max-width: 479px) {
+  .infra-block {
+    grid-template-columns: 1fr !important;
+    padding: 44px 20px !important;
+    gap: 28px !important;
+  }
+  .infra-block.reverse .ib-image,
+  .infra-block.reverse .ib-text { order: unset; }
+  .infra-block .ib-image { order: 1; }
+  .infra-block .ib-text  { order: 2; }
+  .ib-image { min-height: 220px !important; }
+  .ib-text  { padding: 0 !important; }
+  .ib-text h2 { font-size: clamp(22px, 7vw, 30px); }
+  .ib-text p  { font-size: 13px; max-width: 100%; }
+  /* Remove sangrias no mobile */
+  .ib-image.bleed-left  { margin-left: -20px !important; }
+  .ib-image.bleed-right { margin-right: -20px !important; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .infra-block {
+    grid-template-columns: 1fr !important;
+    padding: 52px 28px !important;
+    gap: 32px !important;
+  }
+  .infra-block .ib-image { order: 1; }
+  .infra-block .ib-text  { order: 2; }
+  .ib-image { min-height: 240px !important; }
+  .ib-text  { padding: 0 !important; }
+  .ib-image.bleed-left  { margin-left: -28px !important; }
+  .ib-image.bleed-right { margin-right: -28px !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .infra-block {
+    padding: 60px 40px !important;
+    gap: 48px !important;
+  }
+  .ib-image { min-height: 280px !important; }
+  .ib-text h2 { font-size: clamp(28px, 4vw, 40px); }
+  .ib-image.bleed-left  { margin-left: -40px !important; }
+  .ib-image.bleed-right { margin-right: -40px !important; }
+}
+
+/* ============================================================
+   CONTATO
+   ============================================================ */
+@media (max-width: 479px) {
+  .section-contact-main {
+    grid-template-columns: 1fr !important;
+    padding: 52px 20px !important;
+    gap: 36px !important;
+  }
+  .contact-left h2    { font-size: clamp(24px, 7vw, 32px); }
+  .contact-left > p   { font-size: 13px; max-width: 100%; }
+  .contact-form-card  { padding: 28px 16px !important; box-shadow: none; border: 1px solid var(--border); }
+  .form-row           { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .cf-submit          { width: 100%; justify-content: center; }
+  .section-mapa-contato { padding: 44px 20px !important; }
+  .mapa-contato-wrap iframe { height: 280px !important; }
+  .mapa-link-externo  { font-size: 10px; padding: 8px 12px; bottom: 10px; right: 10px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .section-contact-main {
+    grid-template-columns: 1fr !important;
+    padding: 60px 28px !important;
+    gap: 44px !important;
+  }
+  .contact-form-card { padding: 32px 24px !important; }
+  .form-row          { grid-template-columns: 1fr !important; }
+  .cf-submit         { width: 100%; justify-content: center; }
+  .section-mapa-contato { padding: 52px 28px !important; }
+  .mapa-contato-wrap iframe { height: 300px !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-contact-main {
+    grid-template-columns: 1fr !important;
+    padding: 72px 40px !important;
+    gap: 52px !important;
+  }
+  .contact-form-card { padding: 40px 32px !important; }
+  .section-mapa-contato { padding: 64px 40px !important; }
+  .mapa-contato-wrap iframe { height: 380px !important; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+@media (max-width: 479px) {
+  .footer { padding: 48px 20px 0; }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px;
+    padding-bottom: 36px;
+  }
+  .footer-brand-logo img { width: 44px; height: 44px; }
+  .footer-brand-logo .logo-name { font-size: 16px; }
+  .footer-brand p { font-size: 13px; max-width: 100%; }
+  .footer-bottom  { flex-direction: column; text-align: center; gap: 6px; padding: 16px 0; }
+  .footer-bottom p { font-size: 11px; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .footer { padding: 52px 28px 0; }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px;
+    padding-bottom: 40px;
+  }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 6px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer { padding: 56px 40px 0; }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+  .footer-brand { grid-column: span 2; }
+  .footer-bottom { padding: 20px 0; }
+}
+
+/* ============================================================
+   NOTEBOOK (1024–1279px) — refinamentos finos
+   ============================================================ */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  :root {
+    --pad-h: 52px;
+  }
+  .hero { padding: 72px 52px; }
+  .hero h1 { font-size: clamp(50px, 5.5vw, 70px); }
+  .numeros-grid { grid-template-columns: repeat(4, 1fr); }
+  .diferenciais-grid { grid-template-columns: repeat(3, 1fr); }
+  .mapa-layout { grid-template-columns: 1fr 260px; }
+}
+
+/* ============================================================
+   TOUCH — remove efeitos hover desnecessários
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  .gal-item:hover img       { transform: none; }
+  .lotes-image:hover img    { transform: none; }
+  .empreend-image:hover img { transform: none; }
+  .ib-image:hover img       { transform: none; }
+  .diferencial-item:hover   { background: transparent; }
+  .mapa-contato-wrap:hover  { filter: grayscale(20%) contrast(1.02); }
+}
+
+/* ============================================================
+   ACESSIBILIDADE — respeita preferência de movimento reduzido
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .scroll-line { animation: none !important; }
+  * { transition-duration: 0.01ms !important; }
+}

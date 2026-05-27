@@ -253,6 +253,110 @@
   stroke-linejoin: round;
 }
 
+/* ===== MAPA ===== */
+.section-mapa-contato {
+  background: var(--cream);
+  padding: 100px var(--pad-h) 80px;
+}
+
+.mapa-contato-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.mapa-contato-header .sl {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+
+.mapa-contato-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  color: var(--dark-brown);
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.mapa-contato-header h2 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.mapa-contato-header p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+}
+
+.mapa-contato-wrap {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  filter: grayscale(20%) contrast(1.02);
+  transition: filter 0.4s ease;
+  position: relative;
+}
+
+.mapa-contato-wrap:hover {
+  filter: grayscale(0%) contrast(1);
+}
+
+.mapa-contato-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 480px;
+}
+
+/* Botão "Abrir no Google Maps" */
+.mapa-link-externo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--white);
+  color: var(--dark-brown);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 16px rgba(44,26,14,0.12);
+  transition: background var(--trans-base), color var(--trans-base), box-shadow var(--trans-base);
+  z-index: 10;
+}
+
+.mapa-link-externo:hover {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+  box-shadow: 0 4px 20px rgba(90,107,58,0.25);
+}
+
+.mapa-link-externo svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: stroke var(--trans-base);
+}
+
+.mapa-link-externo .ext-arrow {
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 960px) {
   .section-contact-main {
@@ -262,4 +366,21 @@
   }
   .contact-form-card { padding: 40px 28px; }
   .form-row { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 768px) {
+  .section-mapa-contato {
+    padding: 72px var(--pad-h-md) 0;
+  }
+
+  .mapa-contato-wrap iframe {
+    height: 320px;
+  }
+
+  .mapa-link-externo {
+    bottom: 12px;
+    right: 12px;
+    padding: 9px 14px;
+    font-size: 10px;
+  }
 }
