@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="img/logo-alvorada-branca.png">
+  <title>Galeria · Jardim Alvorada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/root.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/galeria.css">
+</head>
+<body>
+
+<header class="nav nav-dark">
+  <a href="index.html" class="logo-wrap">
+    <img class="logo-icon" src="img/icone-transparent.png" alt="Jardim Alvorada ícone">
+    <div class="logo-text-wrap">
+      <span class="logo-name">Jardim Alvorada</span>
+      <span class="logo-sub">Loteamento</span>
+    </div>
+  </a>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="empreendimento.html">Empreendimento</a></li>
+      <li><a href="infraestrutura.html">Infraestrutura</a></li>
+      <li><a href="galeria.html" class="active">Galeria</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="empreendimento.html">Empreendimento</a>
+  <a href="infraestrutura.html">Infraestrutura</a>
+  <a href="galeria.html" class="active">Galeria</a>
+  <a href="contato.html">Contato</a>
+</div>
+
+<!-- HERO BANNER -->
+<div class="page-hero-banner" style="background-image:url('img/galeria-hero.jpg');background-position:center 50%;">
+  <div class="ph-overlay" style="background:linear-gradient(to right,rgba(20,12,4,.72) 0%,rgba(20,12,4,.45) 55%,rgba(20,12,4,.20) 100%);"></div>
+  <div class="ph-content">
+    <span class="el">Galeria</span>
+    <h1>O Jardim Alvorada em imagens.</h1>
+    <p>Cada fotografia conta uma parte da história deste lugar único, com vista para a Serra da Canastra.</p>
+  </div>
+</div>
+
+<!-- GALERIA -->
+<section class="section-galeria">
+  <div class="galeria-intro fade-up">
+    <span class="sl">Imagens do Empreendimento</span>
+    <h2>Conheça a visão <em>do projeto.</em></h2>
+    <p>Imagens ilustrativas em 3D mostram a organização do loteamento, incluindo o traçado das vias, divisão dos lotes e áreas previstas para implantação de serviços essenciais.</p>
+  </div>
+
+  <div class="galeria-grid">
+
+    <div class="gal-item gal-wide fade-up" data-index="0">
+      <img src="img/galeria-1.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+    <div class="gal-item fade-up delay-1" data-index="1">
+      <img src="img/galeria-2.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+    <div class="gal-item fade-up delay-2" data-index="2">
+      <img src="img/galeria-3.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+    <div class="gal-item fade-up" data-index="3">
+      <img src="img/galeria-4.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+    <div class="gal-item gal-wide fade-up delay-1" data-index="4">
+      <img src="img/galeria-5.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+    <div class="gal-item fade-up delay-2" data-index="5">
+      <img src="img/galeria-6.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+    <div class="gal-item fade-up" data-index="6">
+      <img src="img/galeria-7.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+    <div class="gal-item fade-up delay-1" data-index="7">
+      <img src="img/galeria-8.jpg" loading="lazy">
+      <div class="gal-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- VÍDEO DE RENDERIZAÇÃO — após as fotos -->
+  <div class="galeria-video fade-up">
+    <video controls preload="metadata">
+      <source src="video/render-2.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <div class="galeria-video-caption">
+      <span class="sl">Renderização 3D</span>
+      Resultado final — infraestrutura, hospital e paisagem do Jardim Alvorada
+    </div>
+  </div>
+
+</section>
+
+<!-- LIGHTBOX -->
+<div class="gal-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de imagem">
+  <button class="lb-close" id="lb-close" aria-label="Fechar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="15,18 9,12 15,6"/></svg>
+  </button>
+  <div class="lb-img-wrap">
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <div class="lb-caption" id="lb-caption"></div>
+  </div>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Próxima">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="9,18 15,12 9,6"/></svg>
+  </button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+       <div class="footer-brand-logo">
+         <img src="img/icone-transparent.png" alt="Jardim Alvorada ícone">
+         <span class="logo-name">Loteamento<br>Jardim Alvorada</span>
+       </div>
+       <p>Um lugar onde a vista para a Serra da Canastra encontra a infraestrutura completa que você merece. Viva o início de uma nova história.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Navegue</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="empreendimento.html">Empreendimento</a></li>
+        <li><a href="infraestrutura.html">Infraestrutura</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><p>Av. Vicente Picardi, Barro Branco<br>São Roque de Minas - MG</p></div>
+      <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><p>(37) 99949-1046</p></div>
+      <div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><p>eixo@doriquinho.com.br</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Loteamento Jardim Alvorada © 2026 Todos os direitos reservados | Desenvolvido por <a href="https://github.com/mariaesborges" target="_blank" rel="noopener noreferrer">Maria Eduarda Borges</a></p>
+    <p>Imagens meramente ilustrativas.</p>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script src="galeria.js"></script>
+</body>
+</html>
