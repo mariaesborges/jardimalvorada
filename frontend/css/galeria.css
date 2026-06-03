@@ -3,10 +3,10 @@
    Depende de: root.css, components.css
    ============================================================ */
 
-/* ===== SEÇÃO GALERIA ===== */
+/* ===== SECAO GALERIA ===== */
 .section-galeria {
   background: var(--cream);
-  padding: 96px var(--pad-h) 100px;
+  padding: 96px var(--pad-h) 48px;
 }
 
 /* Intro */
@@ -47,9 +47,9 @@
   line-height: 1.8;
 }
 
-/* ===== VÍDEO NA GALERIA ===== */
+/* ===== VIDEO NA GALERIA ===== */
 .galeria-video {
-  margin-bottom: 48px;
+  margin-bottom: 0;
 }
 
 .galeria-video video {
@@ -92,7 +92,7 @@
   margin-bottom: 48px;
 }
 
-/* Item padrão */
+/* Item padrao */
 .gal-item {
   position: relative;
   overflow: hidden;
@@ -216,7 +216,7 @@
   text-align: center;
 }
 
-/* Botão fechar */
+/* Botao fechar */
 .lb-close {
   position: fixed;
   top: 24px;
@@ -244,7 +244,7 @@
   color: rgba(255,255,255,0.8);
 }
 
-/* Botões prev / next */
+/* Botoes prev / next */
 .lb-nav {
   position: fixed;
   top: 50%;
@@ -291,7 +291,7 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 960px) {
   .section-galeria {
-    padding: 72px var(--pad-h-md) 80px;
+    padding: 72px var(--pad-h-md) 48px;
   }
 
   .galeria-grid {

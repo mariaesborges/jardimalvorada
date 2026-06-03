@@ -10,34 +10,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 80px var(--pad-h);
+  padding: 72px var(--pad-h);
   gap: 80px;
   border-bottom: 1px solid var(--border);
 }
 .infra-block:last-of-type { border-bottom: none; }
 
-/* Imagem */
+/* Imagem — altura fixa igual em todos os blocos */
 .ib-image {
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 4px;
+  height: 500px;
 }
 
 .ib-image img {
   width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
   transition: transform 0.7s ease;
 }
 .ib-image:hover img { transform: scale(1.03); }
 
-/* Sangria nas bordas laterais */
-.ib-image.bleed-right {
-  margin-right: calc(-1 * var(--pad-h));
-  border-radius: 2px 0 0 2px;
-}
+/* Sem sangria — imagens contidas na grade */
+.ib-image.bleed-right,
 .ib-image.bleed-left {
-  margin-left: calc(-1 * var(--pad-h));
-  border-radius: 0 2px 2px 0;
+  margin: 0;
+  border-radius: 4px;
 }
 
 /* Texto */
@@ -128,13 +127,19 @@
 @media (max-width: 900px) {
   .infra-block {
     grid-template-columns: 1fr;
-    padding: 60px var(--pad-h-md);
-    gap: 40px;
+    padding: 0 var(--pad-h-md);
+    gap: 0;
+    min-height: unset;
+  }
+  .ib-image {
+    height: 300px;
+    align-self: auto;
   }
   /* Reseta a ordem dos elementos invertidos */
   .infra-block.reverse .ib-image { order: 0; }
   .infra-block.reverse .ib-text  { order: 1; }
-  /* Remove sangrais nas laterais em mobile */
-  .ib-image.bleed-right { margin-right: calc(-1 * var(--pad-h-md)); border-radius: 2px 0 0 2px; }
-  .ib-image.bleed-left  { margin-left:  calc(-1 * var(--pad-h-md)); border-radius: 0 2px 2px 0; }
+  /* Sangrais laterais em mobile */
+  .ib-image.bleed-right,
+  .ib-image.bleed-left { margin: 0; border-radius: 4px; }
+  .ib-text { padding: 40px 0; }
 }

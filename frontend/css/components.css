@@ -481,6 +481,37 @@
 }
 .lightbox-close:hover { color: var(--white); }
 
+/* ===== FOOTER BRAND LOGO ===== */
+.footer-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-brand-logo img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.footer-brand-logo .logo-name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.25;
+}
+
+.footer-brand > .logo-name { display: none; }
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
 /* ===== RESPONSIVE GLOBAL ===== */
 @media (max-width: 1024px) {
   .nav { padding: 20px 40px; }
@@ -504,30 +535,4 @@
 
 @media (max-width: 480px) {
   .page-hero-banner { height: 300px; }
-}
-.footer-brand-logo {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.footer-brand-logo img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  flex-shrink: 0;
-  opacity: 0.9;
-}
-.footer-brand-logo .logo-name {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.25;
-}
-
-/* Remove margem do logo-name standalone que estava antes */
-.footer-brand > .logo-name {
-  display: none;
 }

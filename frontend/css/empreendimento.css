@@ -224,39 +224,35 @@
   display: block;
 }
 
+/* ÁREAS CLICÁVEIS DO MAPA
+   As áreas existem apenas para clique/hover. Elas ficam invisíveis para não
+   criar retângulos por cima dos lotes reais da imagem aérea. */
 .map-area {
   cursor: pointer;
   pointer-events: auto;
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 0;
+  opacity: 1;
   transition: fill 0.25s ease, stroke 0.25s ease, opacity 0.25s ease;
 }
 
-.area-quadras {
-  fill: rgba(90, 107, 58, 0.16);
-  stroke: rgba(255, 255, 255, 0.58);
-  stroke-width: 2;
-}
-
-.area-hospital {
-  fill: rgba(89, 68, 82, 0.14);
-  stroke: rgba(255, 255, 255, 0.38);
-  stroke-width: 2;
-}
-
-.area-loc,
-.area-serra {
-  fill: rgba(44, 26, 14, 0.04);
-  stroke: transparent;
-}
-
-.map-area:hover,
-.map-area.active {
-  fill: rgba(90, 107, 58, 0.34);
-  stroke: rgba(255, 255, 255, 0.9);
+/* Destaque discreto somente quando passar o mouse, sem desenhar caixas grandes. */
+.area-quadras:hover,
+.area-quadras.active {
+  fill: rgba(90, 107, 58, 0.08);
 }
 
 .area-hospital:hover,
 .area-hospital.active {
-  fill: rgba(89, 68, 82, 0.34);
+  fill: rgba(89, 68, 82, 0.08);
+}
+
+.area-loc:hover,
+.area-serra:hover,
+.area-loc.active,
+.area-serra.active {
+  fill: transparent;
 }
 
 .marker {
@@ -453,3 +449,134 @@
   .mapa-layout    { grid-template-columns: 1fr; }
   .leg-cols       { grid-template-columns: 1fr; }
 }
+
+/* ===== LOTES CLICÁVEIS E STATUS ===== */
+#lotes-layer{
+  pointer-events:auto;
+}
+
+.lote{
+  cursor:pointer;
+  pointer-events:auto;
+  fill: rgba(79,138,48,.58);
+  stroke: rgba(255,255,255,.55);
+  stroke-width:1.2;
+  transition:all .2s ease;
+}
+
+.lote.disponivel{
+  fill: rgba(79,138,48,.58);
+}
+
+.lote.vendido{
+  fill: rgba(195,58,58,.75);
+}
+
+.lote:hover{
+  fill: rgba(96,170,60,.85);
+  stroke:#fff;
+  stroke-width:2;
+}
+
+.lote.vendido:hover {
+  fill: rgba(180, 58, 47, 0.72);
+}
+
+.lote.selected{
+  fill: rgba(120,200,70,.95);
+  stroke:#fff;
+  stroke-width:3;
+}
+
+.lote-numero{
+  fill:#ffffff;
+  font-family:Arial,sans-serif;
+  font-weight:700;
+  font-size:11px;
+  pointer-events:none;
+  paint-order:stroke;
+  stroke:rgba(0,0,0,.7);
+  stroke-width:2px;
+}
+
+.lote.vendido.selected {
+  fill: rgba(180, 58, 47, 0.85);
+}
+
+.mapa-legenda-status {
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.16);
+}
+
+.mapa-legenda-status .leg-title-status {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 14px;
+}
+
+.mapa-legenda-status .leg-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 10px;
+}
+
+.leg-cor {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.leg-cor.disponivel {
+  background: #5a6b3a;
+}
+
+.leg-cor.vendido {
+  background: #b43a2f;
+}
+
+/* ===== AJUSTE: MAPA SOMENTE COM LOTES ===== */
+.marker,
+.map-areas-complementares,
+.map-area,
+.painel-tags {
+  display: none !important;
+}
+
+.mapa-legenda-status {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--font-sans);
+}
+
+.mapa-legenda-status .leg-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+}
+
+.leg-cor {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.leg-cor.disponivel { background: #5a6b3a; }
+.leg-cor.vendido { background: #b43a2f; }
