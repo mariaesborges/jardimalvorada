@@ -1140,6 +1140,40 @@
 
   const loteIcon = '<path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 3v18"/>';
 
+  // Garante que o container de info rica existe no painel
+  let painelInfoEl = document.getElementById('painel-lote-info');
+  if (!painelInfoEl) {
+    painelInfoEl = document.createElement('div');
+    painelInfoEl.id = 'painel-lote-info';
+    painelInfoEl.className = 'painel-lote-info';
+    painelInfoEl.innerHTML = `
+      <span id="painel-badge" class="painel-badge disponivel">Disponível</span>
+      <div class="painel-area-wrap">
+        <span class="painel-area-label">Área</span>
+        <span id="painel-area-valor" class="painel-area-valor">—</span>
+      </div>
+      <div class="painel-meta-row">
+        <div class="painel-meta-item">
+          <span>Quadra</span>
+          <span id="painel-meta-quadra">—</span>
+        </div>
+        <div class="painel-meta-item">
+          <span>Lote</span>
+          <span id="painel-meta-lote">—</span>
+        </div>
+      </div>
+      <a id="painel-cta" href="contato.html" class="painel-cta">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Tenho interesse neste lote
+      </a>
+    `;
+    // Insere antes da legenda (elemento .pex ou ao final do painel)
+    const pex = document.querySelector('.mapa-painel .pex');
+    const painel = document.querySelector('.mapa-painel');
+    if (pex && painel) painel.insertBefore(painelInfoEl, pex);
+    else if (painel) painel.appendChild(painelInfoEl);
+  }
+
   function statusLabel(status) {
     return status === 'vendido' ? 'Vendido' : 'Disponível';
   }
@@ -1156,18 +1190,46 @@
     limparSelecaoLotes();
     path.classList.add('selected');
 
-    panelTitle.textContent = `Quadra ${info.quadra} - Lote ${info.lote}`;
-    panelDesc.innerHTML = `
-      <strong>Área:</strong> ${info.area}<br>
-      <strong>Situação:</strong> ${statusLabel(info.status)}
-    `;
+    // Título
+    panelTitle.textContent = `Quadra ${info.quadra} · Lote ${info.lote}`;
     panelIcon.innerHTML = loteIcon;
+
+    // Esconde a descrição de estado inicial
+    panelDesc.style.display = 'none';
+
+    // Badge
+    const badge = document.getElementById('painel-badge');
+    badge.textContent = statusLabel(info.status);
+    badge.className = `painel-badge ${info.status}`;
+
+    // Área
+    document.getElementById('painel-area-valor').textContent = info.area;
+
+    // Meta
+    document.getElementById('painel-meta-quadra').textContent = info.quadra;
+    document.getElementById('painel-meta-lote').textContent = info.lote;
+
+    // CTA: se vendido, desativa o botão
+    const cta = document.getElementById('painel-cta');
+    if (info.status === 'vendido') {
+      cta.style.opacity = '0.35';
+      cta.style.pointerEvents = 'none';
+      cta.textContent = 'Lote indisponível';
+    } else {
+      cta.style.opacity = '1';
+      cta.style.pointerEvents = '';
+      cta.innerHTML = `<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Tenho interesse neste lote`;
+    }
+
+    painelInfoEl.classList.add('visivel');
   }
 
   function estadoInicialPainel() {
     panelTitle.textContent = 'Selecione um lote';
+    panelDesc.style.display = '';
     panelDesc.innerHTML = 'Clique em qualquer lote do mapa para visualizar quadra, número, área e situação.';
     panelIcon.innerHTML = loteIcon;
+    if (painelInfoEl) painelInfoEl.classList.remove('visivel');
   }
 
   async function carregarLotes() {

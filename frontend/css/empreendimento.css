@@ -186,10 +186,12 @@
   line-height: 1.8;
 }
 
+/* Layout principal do mapa — painel mais largo para acomodar conteúdo rico */
 .mapa-layout {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 340px;
   border: 1px solid var(--border);
+  box-shadow: 0 8px 40px rgba(30,20,8,0.10);
 }
 
 .mapa-svg-wrap {
@@ -224,9 +226,7 @@
   display: block;
 }
 
-/* ÁREAS CLICÁVEIS DO MAPA
-   As áreas existem apenas para clique/hover. Elas ficam invisíveis para não
-   criar retângulos por cima dos lotes reais da imagem aérea. */
+/* ÁREAS CLICÁVEIS DO MAPA */
 .map-area {
   cursor: pointer;
   pointer-events: auto;
@@ -237,7 +237,6 @@
   transition: fill 0.25s ease, stroke 0.25s ease, opacity 0.25s ease;
 }
 
-/* Destaque discreto somente quando passar o mouse, sem desenhar caixas grandes. */
 .area-quadras:hover,
 .area-quadras.active {
   fill: rgba(90, 107, 58, 0.08);
@@ -262,13 +261,14 @@
 .marker circle.bg { transition: opacity 0.25s, transform 0.25s; transform-origin: center; }
 .marker:hover circle.bg { opacity: 1 !important; }
 
-/* Painel lateral */
+/* ── Painel lateral ── */
 .mapa-painel {
   background: var(--dark-brown);
-  padding: 40px 32px;
+  padding: 36px 28px 32px;
   display: flex;
   flex-direction: column;
   color: var(--white);
+  min-height: 380px;
 }
 
 .pl {
@@ -277,31 +277,32 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
+/* Ícone + título */
 .painel-sel {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .pic {
-  width: 36px;
-  height: 36px;
-  background: rgba(90,107,58,0.35);
-  border-radius: 4px;
+  width: 38px;
+  height: 38px;
+  background: rgba(90,107,58,0.30);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 .pic svg {
   width: 18px;
   height: 18px;
-  stroke: var(--green-light);
+  stroke: var(--green-light, #a8be6e);
   fill: none;
   stroke-width: 1.5;
   stroke-linecap: round;
@@ -309,18 +310,156 @@
 }
 
 .painel-sel h3 {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 300;
   color: var(--white);
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
+/* ── Estado: lote selecionado ── */
+.painel-lote-info {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+.painel-lote-info.visivel { display: flex; }
+
+/* Badge de status */
+.painel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+.painel-badge.disponivel {
+  background: rgba(90,107,58,0.25);
+  color: #a8be6e;
+  border: 1px solid rgba(90,107,58,0.45);
+}
+.painel-badge.vendido {
+  background: rgba(180,58,47,0.22);
+  color: #e07a72;
+  border: 1px solid rgba(180,58,47,0.4);
+}
+.painel-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Área em destaque */
+.painel-area-wrap {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.painel-area-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+.painel-area-valor {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Quadra info row */
+.painel-meta-row {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.painel-meta-item {
+  flex: 1;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.painel-meta-item:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.10);
+}
+.painel-meta-item span:first-child {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.30);
+}
+.painel-meta-item span:last-child {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* Botão de contato */
+.painel-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 16px;
+  background: var(--green, #5a6b3a);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: auto;
+}
+.painel-cta:hover {
+  background: #6b7f45;
+  transform: translateY(-1px);
+}
+.painel-cta svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* Estado padrão (nenhum lote selecionado) */
 .painel-desc {
   font-family: var(--font-sans);
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.45);
   line-height: 1.75;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .pex {
@@ -492,11 +631,11 @@
   fill:#ffffff;
   font-family:Arial,sans-serif;
   font-weight:700;
-  font-size:11px;
+  font-size:14px;
   pointer-events:none;
   paint-order:stroke;
-  stroke:rgba(0,0,0,.7);
-  stroke-width:2px;
+  stroke:rgba(0,0,0,.75);
+  stroke-width:3px;
 }
 
 .lote.vendido.selected {
@@ -553,30 +692,26 @@
 }
 
 .mapa-legenda-status {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.10);
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  font-family: var(--font-sans);
+  gap: 0;
 }
 
+/* Remove o quadrado de cor e reestiliza a frase */
 .mapa-legenda-status .leg-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255,255,255,.75);
-  font-size: 13px;
+  display: block;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
 }
 
 .leg-cor {
-  width: 16px;
-  height: 16px;
-  border-radius: 3px;
-  display: inline-block;
-  flex-shrink: 0;
+  display: none !important;
 }
-
-.leg-cor.disponivel { background: #5a6b3a; }
-.leg-cor.vendido { background: #b43a2f; }
