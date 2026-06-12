@@ -3,7 +3,10 @@
    ============================================================ */
 (function () {
 
-  if (sessionStorage.getItem('alvorada_visited')) return;
+  if (sessionStorage.getItem('alvorada_visited')) {
+    document.documentElement.classList.remove('alv-loading');
+    return;
+  }
   sessionStorage.setItem('alvorada_visited', '1');
 
   var style = document.createElement('style');
@@ -115,11 +118,15 @@
     if (document.body) {
       document.body.appendChild(el);
       document.body.classList.add('alv-loading');
+      document.body.style.visibility = 'visible';
+      document.documentElement.classList.remove('alv-loading');
       startAnimation();
     } else {
       document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(el);
         document.body.classList.add('alv-loading');
+        document.body.style.visibility = 'visible';
+        document.documentElement.classList.remove('alv-loading');
         startAnimation();
       });
     }
