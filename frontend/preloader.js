@@ -51,9 +51,15 @@
       'transition:opacity .65s ease,transform .65s ease;',
     '}',
 
+    '@font-face{',
+      'font-family:"Saudagar";',
+      'src:url("font/Saudagar.ttf") format("truetype");',
+      'font-weight:normal;font-style:normal;font-display:block;',
+    '}',
+
     /* "Jardim" — pequeno, tracking largo */
     '#alv-jardim{',
-      'font-family:"Cormorant Garamond",Georgia,serif;',
+      'font-family:"Saudagar",serif;',
       'font-size:clamp(13px,1.8vw,22px);',
       'font-weight:400;',
       'font-style:normal;',
@@ -65,7 +71,7 @@
 
     /* "Alvorada" — grande, serifado elegante */
     '#alv-alvorada{',
-      'font-family:"Cormorant Garamond",Georgia,serif;',
+      'font-family:"Saudagar",serif;',
       'font-size:clamp(58px,10vw,120px);',
       'font-weight:300;',
       'font-style:normal;',
@@ -146,25 +152,25 @@
         /* 2 — Jardim + Alvorada juntos */
         setTimeout(function () {
           if (textBlock) textBlock.classList.add('show');
-        }, 450);
+        }, 300);
 
         /* 3 — subtítulo */
         setTimeout(function () {
           if (sub) sub.classList.add('show');
-        }, 850);
+        }, 600);
 
         /* 4 — fade out */
         setTimeout(function () {
           el.classList.add('exit');
           document.body.classList.remove('alv-loading');
           document.documentElement.classList.remove('alv-loading');
-        }, 2800);
+        }, 1600);
 
         /* 5 — remove do DOM */
         setTimeout(function () {
           if (el.parentNode) el.parentNode.removeChild(el);
           if (style.parentNode) style.parentNode.removeChild(style);
-        }, 3500);
+        }, 2250);
 
       });
     });
